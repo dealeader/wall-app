@@ -14,8 +14,7 @@ class MessagesController extends Controller
 {
     public function index()
     {
-        $messages = MessageResource::collection(Message::orderBy('created_at', 'desc')->paginate(20));
-
+        $messages = MessageResource::collection(Message::orderBy('publication_date', 'desc')->paginate(20));
         return response()->json([
             'data' => $messages,
             'page' => $messages->currentPage(),

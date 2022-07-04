@@ -19,7 +19,7 @@ class MessageResource extends JsonResource
             'id' => $this->id,
             'content' => $this->content,
             'author' => User::find($this->user_id)->name,
-            'publication_date' => $this->publication_date,
+            'publication_date' => $this->publication_date->format('Y.m.d - h:i'),
         ];
     }
 }
