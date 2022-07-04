@@ -23,7 +23,7 @@ class AuthController extends Controller
         return response()->json([
             'data' => $user,
             'message' => 'Successful registration, log in',
-        ]);
+        ], 201);
     }
 
     public function login(LoginRequest $request)
@@ -38,8 +38,9 @@ class AuthController extends Controller
         $accessToken = Auth::user()->createToken('authToken')->accessToken;
 
         return response()->json([
+            'data' => Auth::user(),
             'message' => 'Successful authorization',
             'access_token' => $accessToken
-        ]);
+        ], 200);
     }
 }
